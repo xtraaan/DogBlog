@@ -1,0 +1,18 @@
+{% extends "entries/base.html" %}
+
+{% block content %}
+    {% for entry in entries %}
+    <div class="col-lg-3 card col-md-3 col-sm-3 col-xs-3 mb-3 mt-3 p-0 border-0">
+        <div class="card-body">
+            <h4 class="card-title text-center d-none d-lg-block">{{ entry.title }}</h4>
+            {% if entry.image %}
+            <img src="{{ entry.image.url }}" alt="{{ entry.title }}">
+            {% endif %}
+            <p class="card-text d-none d-lg-block">{{ entry.description }}</p>
+        </div>
+        <div class="text-muted text-center">
+            {{ entry.date }}
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
